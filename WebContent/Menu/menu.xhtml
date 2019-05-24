@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:p="http://primefaces.org/ui"
+	contentType="text/html">
+<h:head>
+		<title>Menu</title>
+</h:head>
+<h:body>
+	<h:form id="frmMenu">
+		<p:menubar>
+			<p:submenu label="Academicos">
+				<p:menuitem value="Academicos" url="/academico.jsf"/>
+				<p:menuitem value="Matriculas" url="#"/>
+			</p:submenu>
+			
+			<p:submenu label="Cursos" id="Curos">
+			
+			</p:submenu>
+			<p:menuitem value="Sair" id="Sair" url="/login.jsf"/>
+		</p:menubar>
+		
+	</h:form>
+
+		
+</h:body>
+</f:view>
