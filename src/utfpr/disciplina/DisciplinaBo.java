@@ -17,9 +17,18 @@ public class DisciplinaBo {
 		lsDisciplina.add(new Disciplina(3, "Prog Web", "Angular 6"));
 		lsDisciplina.add(new Disciplina(4, "Ingles Técnico", "Google Translate"));
 		
-		return lsDisciplina;
-		
+		if((busca != null) &&(!busca.equals(""))) {
+			List<Disciplina> lsAux = new ArrayList<Disciplina>();
+			
+			for (Disciplina d: lsDisciplina){
+				if (d.getNome().toUpperCase().contains(busca.toUpperCase())){
+					lsAux.add(d);
+				}
+			}
+			return lsAux;
+			
+		}else {
+			return lsDisciplina;
+		}			
 	}
-	
-
 }

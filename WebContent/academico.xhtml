@@ -23,22 +23,20 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<p:outputLabel value="Curso" for="curso"/>
 				<h:inputText id="curso" value= "#{academico.curso}"/>
 				
-				<p:outputLabel value="Sexo" for="sexo"/>
-				<h:inputText id="sexo" value= "#{academico.sexo}"/>
-				
+				<p:outputLabel value="Sexo" for="idSexo"/>				
 				<p:selectOneMenu id="idSexo" value="#{academico.sexo}">
 					<f:selectItem itemLabel="Masculino" itemValue="M"/>
 					<f:selectItem itemLabel="Feminino" itemValue="F"/>
 				</p:selectOneMenu>
 				
 				<p:outputLabel value="Observação" for="observacao"/>
-				<p:inputText id="observacao" value= ""/>
+				<p:inputText id="observacao" value= ""/>				
 				
-				
-				<p:commandButton id="idBtnSalvar" value="Salvar" action="#{academicoBo.salvar}"/>
-				<p:commandButton id="idBtnCancelar" value="Limpar" action="#{academicoBo.limpar}"/>
-				<p:commandButton id="idBtnNovo" value="Novo" />
 			</p:panelGrid>
+			<p:commandButton id="idBtnSalvar" value="Salvar" action="#{academicoBo.salvar}"/>
+			<p:commandButton id="idBtnCancelar" value="Limpar" action="#{academicoBo.limpar}"/>
+			<p:commandButton id="idBtnNovo" value="Novo" />
+				
 			<p:panelGrid columns="2">
 				<p:autoComplete id="listaDisciplinas" value="#{academico.disciplina}" 
 						completeMethod="#{disciplinaBo.getListaDisciplinas}" var="d" itemVaue="#{d}" itemLabel="#{d.nome}"
