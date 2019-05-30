@@ -14,16 +14,16 @@ xmlns="http://www.w3.org/1999/xhtml"
 		<h:form id="frmAcademico">
 		    <p:growl autoUpdate="true" ></p:growl>
 			<p:panelGrid columns="2">
-				<p:outputLabel value="ra" for="ra"/>
+				<p:outputLabel value="RA" for="ra"/>
 				<h:inputText id="ra" value= "#{academico.ra}"/>
 				
-				<p:outputLabel value="nome" for="nome"/>
+				<p:outputLabel value="Nome" for="nome"/>
 				<h:inputText id="nome" value= "#{academico.nome}"/>
 				
-				<p:outputLabel value="curso" for="curso"/>
+				<p:outputLabel value="Curso" for="curso"/>
 				<h:inputText id="curso" value= "#{academico.curso}"/>
 				
-				<p:outputLabel value="sexo" for="sexo"/>
+				<p:outputLabel value="Sexo" for="sexo"/>
 				<h:inputText id="sexo" value= "#{academico.sexo}"/>
 				
 				<p:selectOneMenu id="idSexo" value="#{academico.sexo}">
@@ -31,7 +31,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 					<f:selectItem itemLabel="Feminino" itemValue="F"/>
 				</p:selectOneMenu>
 				
-				<p:outputLabel value="observacao" for="observacao"/>
+				<p:outputLabel value="Observação" for="observacao"/>
 				<p:inputText id="observacao" value= ""/>
 				
 				
@@ -43,10 +43,10 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<p:autoComplete id="listaDisciplinas" value="#{academico.disciplina}" 
 						completeMethod="#{disciplinaBo.getListaDisciplinas}" var="d" itemVaue="#{d}" itemLabel="#{d.nome}"
 						converter="entityConverter"	dropdown="true" scrollHeight="200" size="50">
-						<p:column>
+						<p:column headerText="Código">
 							<h:outputText value="#{d.id}"/>
 						</p:column>
-						<p:column>
+						<p:column headerText="Disciplina">
 							<h:outputText value="#{d.nome}"/>
 						</p:column>
 				
