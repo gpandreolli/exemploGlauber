@@ -6,6 +6,9 @@ public class Disciplina {
 	private String nome;
 	private String ementa;
 	
+	public Disciplina() {
+		
+	}
 	public Disciplina (Integer id, String nome, String ementa) {
 		this.id =id;
 		this.nome = nome;

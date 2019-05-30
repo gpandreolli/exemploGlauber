@@ -15,12 +15,19 @@ public class Academico {
 	private String curso;
 	private String sexo;
 	public String observacao;
+	private Disciplina disciplina = new Disciplina();
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
 	private List<Disciplina> lsDisciplina = new ArrayList<Disciplina>();
 	
-	public Academico() {
-		lsDisciplina.add(new Disciplina(1, "Banco de Dados I", "Sql Basico"));
-		lsDisciplina.add(new Disciplina(2, "Banco de Dados II", "Sql Avançado"));
-	}
+	//public Academico() {
+//	//	lsDisciplina.add(new Disciplina(1, "Banco de Dados I", "Sql Basico"));
+	////	lsDisciplina.add(new Disciplina(2, "Banco de Dados II", "Sql Avançado"));
+	//}
 	
 	
 	public String getRa() {
