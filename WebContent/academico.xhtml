@@ -20,8 +20,19 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<p:outputLabel value="Nome" for="nome"/>
 				<h:inputText id="nome" value= "#{academico.nome}"/>
 				
-				<p:outputLabel value="Curso" for="curso"/>
-				<h:inputText id="curso" value= "#{academico.curso}"/>
+				<p:outputLabel value="Curso" for="listaCursos"/>
+				<p:panelGrid columns="2">
+					<p:autoComplete id="listaCursos" value="#{academico.curso}" 
+							completeMethod="#{cursoBo.getListaCursos}" var="d" itemVaue="#{d}" itemLabel="#{d.nome}"
+							converter="entityConverter"	dropdown="true" scrollHeight="200" size="30">
+							<p:column headerText="Código">
+								<h:outputText value="#{d.id}"/>
+							</p:column>
+							<p:column headerText="Curso">
+								<h:outputText value="#{d.nome}"/>
+							</p:column>				
+					</p:autoComplete>				
+				</p:panelGrid>
 				
 				<p:outputLabel value="Sexo" for="idSexo"/>				
 				<p:selectOneMenu id="idSexo" value="#{academico.sexo}">

@@ -4,6 +4,7 @@ import javax.faces.bean.SessionScoped;
 import java.util.List;
 import java.util.ArrayList;
 
+import utfpr.curso.Curso;
 import utfpr.disciplina.Disciplina;
 
 @ManagedBean
@@ -12,10 +13,11 @@ public class Academico {
 	
 	private String ra ;
 	private String nome ;
-	private String curso;
+	private Curso curso = new Curso();
 	private String sexo;
 	public String observacao;
 	private Disciplina disciplina = new Disciplina();
+	
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
@@ -23,6 +25,15 @@ public class Academico {
 		this.disciplina = disciplina;
 	}
 	private List<Disciplina> lsDisciplina = new ArrayList<Disciplina>();
+	
+	
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	private List<Curso> lsCurso = new ArrayList<Curso>();
 	
 	//public Academico() {
 //	//	lsDisciplina.add(new Disciplina(1, "Banco de Dados I", "Sql Basico"));
@@ -42,12 +53,7 @@ public class Academico {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCurso() {
-		return curso;
-	}
-	public void setCurso(String curso) {
-		this.curso = curso;
-	}
+
 	public String getSexo() {
 		return sexo;
 	}
