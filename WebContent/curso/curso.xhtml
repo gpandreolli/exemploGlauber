@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+<f:view 
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	contentType="text/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Cadastro de Cursos</title>
+	</h:head>
+	
+	<h:body>
+		<h:form id="frmCurso">
+		    <p:growl autoUpdate="true" ></p:growl>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Id" for="id"/>
+				<h:inputText id="idCurso" value= "#{curso.id}" requiredeMessage="Id deve ser informada"/>
+				
+				<p:outputLabel value="Nome" for="nome"/>
+				<h:inputText id="idNome" value= "#{curso.nome}" requiredeMessage="Nome deve ser informado"/>
+								
+				
+			</p:panelGrid>
+			<p:commandButton id="idBtnSalvar" value="Salvar" action="#{cursoBo.salvar}"/>
+			<p:commandButton id="idBtnCancelar" value="Limpar" action="#{academicoBo.limpar}"/>
+			<p:commandButton id="idBtnNovo" value="Novo" />
+				
+			
+			
+			
+		<!--	<p:dataTable value="#{academico.lsDisciplina}" var="cachorro"> 
+				<p:column headerText="id">
+					<p:outputLabel value="#{cachorro.id}"/>
+				</p:column>
+				<p:column headerText="Nome da Disciplina">
+					<p:outputLabel value="#{cachorro.nome}"/>
+				</p:column>				
+				<p:column headerText="Ementa da Disciplina">
+					<p:outputLabel value="#{cachorro.ementa}"/>
+				</p:column>
+				<p:column headerText="Excluir">
+					<p:commandButton id="idBtnExlcuir" value="Exlcuir"  ></p:commandButton>
+				</p:column>
+			</p:dataTable> -->
+		</h:form>
+	</h:body>
+</f:view>

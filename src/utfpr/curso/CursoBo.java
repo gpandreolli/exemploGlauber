@@ -1,8 +1,9 @@
 package utfpr.curso;
 
 import java.util.ArrayList;
+import utfpr.util.HibernateHelper;
+import utfpr.util.JsfHelper;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -11,6 +12,17 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class CursoBo {
+	
+	public void salvar() {
+		Curso curso = (Curso)JsfHelper.getSessionAttribute("curso");
+		try {
+			HibernateHelper.save(curso);
+			JsfHelper.addMessage("Registro Salvo");
+			
+		}catch(Exception e) {
+			JsfHelper.addErrorMessage("Erro ao salvar o curso");
+		}
+	}
 	
 	public List<Curso> getListaCursos(String busca){
 		List<Curso> lsCurso = new ArrayList<Curso>();

@@ -1,13 +1,22 @@
 package utfpr.curso;
 
 import javax.faces.bean.ManagedBean;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
+@Entity
+@Table
 public class Curso {
 	
+	@Id
 	private Integer id ;
+	
+	
 	private String nome ;	
 	
 	
