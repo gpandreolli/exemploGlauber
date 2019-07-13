@@ -1,48 +1,49 @@
-<?xml version='1.0' encoding='iso-8859-1' ?>
-<f:view 
-xmlns="http://www.w3.org/1999/xhtml"
+<?xml version='1.0' encoding='iso-8859-1' ?> 
+<f:view xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	contentType="text/html"
-	xmlns:p="http://primefaces.org/ui">
-	<h:head>
-		<title>Cadastro de Cursos</title>
-	</h:head>
-	
-	<h:body>
-		<h:form id="frmCurso">
-		    <p:growl autoUpdate="true" ></p:growl>
-			<p:panelGrid columns="2">
-				<p:outputLabel value="Id" for="idCurso"/>
-				<h:inputText id="idCurso" value= "#{curso.id}" requiredeMessage="Id deve ser informada"/>
-				
-				<p:outputLabel value="Nome" for="idNome"/>
-				<h:inputText id="idNome" value= "#{curso.nome}" requiredeMessage="Nome deve ser informado"/>
-								
-				
-			</p:panelGrid>
-			<p:commandButton id="idBtnSalvar" value="Salvar" action="#{cursoBo.salvar}"/>
-			<p:commandButton id="idBtnCancelar" value="Limpar" action="#{academicoBo.limpar}"/>
-			<p:commandButton id="idBtnNovo" value="Novo" />
-				
-			
-			
-			
-		<!--	<p:dataTable value="#{academico.lsDisciplina}" var="cachorro"> 
-				<p:column headerText="id">
-					<p:outputLabel value="#{cachorro.id}"/>
-				</p:column>
-				<p:column headerText="Nome da Disciplina">
-					<p:outputLabel value="#{cachorro.nome}"/>
-				</p:column>				
-				<p:column headerText="Ementa da Disciplina">
-					<p:outputLabel value="#{cachorro.ementa}"/>
-				</p:column>
-				<p:column headerText="Excluir">
-					<p:commandButton id="idBtnExlcuir" value="Exlcuir"  ></p:commandButton>
-				</p:column>
-			</p:dataTable> -->
-		</h:form>
-	</h:body>
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+	contentType="text/html">
+<h:head>
+    <title>Cursos</title>
+</h:head>
+<h:body>
+    <h:form id="frmCurso">
+		<p:growl autoUpdate="true"/>
+		<p:panelGrid id="panelCurso" columns="2">
+		
+	    	<p:outputLabel value="Id" for="idCurso"/>
+	    	<p:inputText id="idCurso" required="true"
+	    	   requiredMessage="Id do curso deve ser informado"
+	    	   value="#{curso.cursoId}"/>
+	    	   
+	    	<p:outputLabel value="Nome" for="idNome"/>
+	    	<p:inputText id="idNome" required="true"
+	    	   requiredMessage="Nome deve ser informado"
+	    	   size="60" maxlength="80" value="#{curso.nome}"/>
+	    	   
+	    	<p:commandButton id="btnNovo" value="Novo"
+	    	   action="#{cursoBo.novo}"/>
+	    	   
+	    	<p:commandButton id="btnSalvar" value="Salvar"
+	    	   action="#{cursoBo.salvar}"/>
+	    	   
+		</p:panelGrid>
+
+		<p:spacer height="10px"/>
+		<p:panelGrid id="pesquisaCurso" columns="1">
+			<p:commandButton id="btnPesquisar" value="Pesquisar" immediate="true"
+			   action="#{cursoBo.pesquisar}" update="gridCurso"/>
+			<p:dataTable id="gridCurso" value="#{curso.lsCurso}" var="cursos">
+		    	<p:column headerText="Id">
+		    		<p:outputLabel value="#{cursos.cursoId}"/>
+		    	</p:column>
+		    	<p:column headerText="Nome">
+		    		<p:outputLabel value="#{cursos.nome}"/>
+		    	</p:column>
+			</p:dataTable>
+		</p:panelGrid>		
+	</h:form>
+</h:body>
 </f:view>

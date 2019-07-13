@@ -8,6 +8,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import utfpr.curso.Curso;
 import utfpr.usuario.Usuario;
+import utfpr.disciplina.Disciplina;
 
 public class HibernateManager {
 	
@@ -43,6 +44,7 @@ public class HibernateManager {
 			this.configuration = new Configuration().configure("hibernate.cfg.xml");
 			this.configuration.addAnnotatedClass(Usuario.class);
 			this.configuration.addAnnotatedClass(Curso.class);
+			this.configuration.addAnnotatedClass(Disciplina.class);
 			this.serviceRegistry = new StandardServiceRegistryBuilder().
 									applySettings(configuration.getProperties()).build();
 			this.sessionFactory = this.configuration.buildSessionFactory(serviceRegistry);

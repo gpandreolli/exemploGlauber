@@ -1,10 +1,30 @@
 package utfpr.disciplina;
 
+import javax.faces.bean.ManagedBean;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.util.List;
+import java.util.ArrayList;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped
+@Entity
+@Table
 public class Disciplina {
 	
+	@Id
 	private Integer id;
+	
 	private String nome;
+	
 	private String ementa;
+	
+	@Transient
+	private List<Disciplina> lsDisciplina = new ArrayList<Disciplina>();
+	
 	
 	public Disciplina() {
 		
@@ -41,6 +61,14 @@ public class Disciplina {
 	}
 	public void setEmenta(String ementa) {
 		this.ementa = ementa;
+	}
+	
+	public List<Disciplina> getLsDisciplina() {
+		return lsDisciplina;
+	}
+
+	public void setLsDisciplina(List<Disciplina> lsDisciplina) {
+		this.lsDisciplina = lsDisciplina;
 	}
 	
 	
